@@ -1,5 +1,6 @@
 import pandas as pd 
 import talib 
+from functools import reduce
 from talib import SMA 
 idx = pd.IndexSlice
 
