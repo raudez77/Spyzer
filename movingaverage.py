@@ -1,3 +1,6 @@
+import pandas as pd 
+from talib import SMA 
+
 class MovingAverage(pandas.DataFrame):
     def __init__ (self, multi_data):
         super(MovingAverage,self).__init__()
