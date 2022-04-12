@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Moving_Average_MG',
+    name='spy_analyzer',
     version='1.0.0',
     url='https://github.com/raudez77/Stock-Analysis',
     author='Marvin G.',
