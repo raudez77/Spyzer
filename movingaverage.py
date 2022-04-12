@@ -1,4 +1,5 @@
 import pandas as pd 
+import talib 
 from talib import SMA 
 
 class MovingAverage(pd.DataFrame):
