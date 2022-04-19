@@ -6,3 +6,8 @@ This is small project that I am writing for my personal finance, I created a sma
 
 
 Disclosure: This is my personal insights and they must not be taken for granted, I am not a financial advisor. 
+
+
+- MultiAverage fuctions  : Return the Multi Average data frame 
+- Above50 : return stock which close > 50DMA
+- _MACD_ : calculate and return mcad with  fastperiod = 12 , slowperiod = 24 , signalperiod = 9
