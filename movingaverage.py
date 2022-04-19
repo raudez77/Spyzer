@@ -45,4 +45,27 @@ class MovingAverage(pd.DataFrame):
         print(f"Finding Stock above 50D SMA with {td} in positive traiding")
         
         return trend
+    def _MACD_(self, col_name , fastperiod = 12 , slowperiod = 24 , signalperiod = 9):
         
+        frames_ = [pd.DataFrame(index=self.multi_data.index) for _ in range(0,3)]
+        names_ = ['MACD','MACDSINGAL','MACDHIST']
+        # Calculating 
+        for ticker_ in self.columns_l2:
+            macd, macdsignal, macdhist = MACD(self.multi_data.loc[:,idx[col_name,ticker_]].values, 
+                                             fastperiod=fastperiod, 
+                                             slowperiod=slowperiod, 
+                                             signalperiod=signalperiod)      
+            # Inputtin Columns 
+            frames_[0].insert(0, ticker_, macd)
+            frames_[1].insert(0, ticker_, macdsignal)
+            frames_[2].insert(0, ticker_, macdhist)
+                
+                
+        # Creating Multi-columns and Concatenating 
+        for position in range(0, 3):
+            frames_[position].columns = (pd.MultiIndex.from_product([[names_[position]],
+                                                                     frames_[position].columns]))
+        # Merging all DataFrame
+        Multi_MACD = reduce(lambda left, right : pd.merge(left, right, left_index=True,right_index=True),
+                                                       frames_)
+        return Multi_MACD
