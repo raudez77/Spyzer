@@ -1,7 +1,7 @@
 import pandas as pd 
 import talib 
 from functools import reduce
-from talib import SMA 
+from talib import SMA,MACD
 idx = pd.IndexSlice
 
 class MovingAverage(pd.DataFrame):
